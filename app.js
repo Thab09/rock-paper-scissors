@@ -24,11 +24,46 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game() {
-  for (let i = 0; i < 5; i++) {
-    let playerSelection = prompt("Rock, Paper or Scissor?");
-    let computerSelection = computerPlay();
-    console.log(playRound(playerSelection, computerSelection));
-  }
+  let options = document.querySelectorAll("img");
+  let playerSelection = "";
+  let player = 0;
+  let computer = 0;
+  options.forEach((img) => {
+    img.addEventListener("click", () => {
+      playerSelection = img.id;
+      let computerSelection = computerPlay();
+      let result = playRound(playerSelection, computerSelection);
+      if (result.includes("Player")) {
+        player += 1;
+      } else if (result.includes("Computer")) {
+        computer += 1;
+      }
+      const container = document.querySelector("#container");
+      const printResult = document.createElement("p");
+      printResult.textContent = `${result} ${player}:${computer}`;
+      container.appendChild(printResult);
+      if (player === 5 || computer === 5) {
+        document.getElementById("rock").style.pointerEvents = "none";
+        document.getElementById("paper").style.pointerEvents = "none";
+        document.getElementById("scissor").style.pointerEvents = "none";
+        const newGame = document.createElement("button");
+        const verdict = document.createElement("h4");
+        if (player === 5) {
+          verdict.textContent = "Congratulations! You won.";
+        } else {
+          verdict.textContent = "You lost. Try Again.";
+        }
+        verdict.style.cssText = "margin: 10px 0px;";
+        newGame.textContent = "NEW GAME";
+        newGame.style.cssText =
+          "color: black; background-color: white; margin-top: 10px; font-size: 1.2rem; width: 125px;";
+        newGame.onclick = () => window.location.reload();
+        container.appendChild(verdict);
+        container.appendChild(newGame);
+      }
+    });
+  });
+  // let playerSelection = prompt("Rock, Paper or Scissor?");
 }
 
 game();

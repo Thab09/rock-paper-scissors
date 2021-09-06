@@ -4,10 +4,60 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="#" />
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap"
+      rel="stylesheet"
+    />
+    <title>RPS: HUMAN vs AI</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        color: white;
+        background-color: #030303;
+        font-family: "Source Code Pro", monospace;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      #container {
+        width: 400px;
+        margin-top: 75px;
+      }
+      h1 {
+        text-align: center;
+      }
+      h3 {
+        font-size: 175%;
+        margin: 20px 0px;
+        text-align: center;
+      }
+      #rps-container {
+        margin: 30px 0px;
+        display: flex;
+        justify-content: space-between;
+      }
+      #rps-container > img {
+        opacity: 90%;
+      }
+    </style>
   </head>
   <body>
+    <div id="container">
+      <h1>RPS: HUMAN vs AI</h1>
+      <h3>PICK ONE</h3>
+      <div id="rps-container">
+        <img id="rock" src="images/Rock.svg" alt="hand-sign-rock" />
+        <img id="paper" src="images/Paper.svg" alt="hand-sign-paper" />
+        <img id="scissor" src="images/Scissor.svg" alt="hand-sign-scissor" />
+      </div>
+    </div>
     <script type="text/javascript" src="app.js"></script>
   </body>
 </html>
